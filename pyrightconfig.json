@@ -1,0 +1,16 @@
+{
+  "typeCheckingMode": "off",
+  "reportMissingImports": true,
+  "reportMissingTypeStubs": false,
+  "extraPaths": [
+    "C:/proyectosvscode/jesse/.venv/Lib/site-packages"
+  ],
+  "executionEnvironments": [
+    {
+      "root": "C:/proyectosvscode/jesse",
+      "extraPaths": [
+        "C:/proyectosvscode/jesse/.venv/Lib/site-packages"
+      ]
+    }
+  ]
+}
