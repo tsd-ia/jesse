@@ -9,7 +9,18 @@ import sys
 ACCOUNT_LOGIN = 0  # Tu numero de cuenta Exness
 ACCOUNT_PASSWORD = "" # Tu contraseña
 ACCOUNT_SERVER = "" # Ejem: Exness-MT5Trial6
+SYMBOL = "XAUUSD" # Simbolo para el ORO
 # ------------------------------
+
+def get_mt5_symbol(symbol):
+    """Verifica si el simbolo existe o necesita el sufijo 'm' de Exness"""
+    symbols = mt5.symbols_get(group=f"*{symbol}*")
+    if not symbols:
+        return None
+    for s in symbols:
+        if s.name == symbol or s.name == f"{symbol}m":
+            return s.name
+    return symbols[0].name
 
 def initialize_mt5():
     """Inicializa la conexion con MetaTrader 5"""
