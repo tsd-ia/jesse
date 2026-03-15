@@ -1,35 +1,36 @@
 from jesse.strategies import Strategy
 import jesse.indicators as ta
-from jesse import utils
-import jesse.helpers as jh
 
 class MasterWarrior2026(Strategy):
     """
-    MASTER WARRIOR 2026 - VERSIÓN ESTABLE ORO.
-    Valores fijos para evitar errores de carga en Jesse Dash.
+    TITAN HFT VAMPIRE: Diseñada para +1000 trades diarios.
+    Entra por micro-oscilación de precio.
     """
+    def hyperparameters(self):
+        return [
+            {'name': 'sensitivity', 'type': 'float', 'min': 0.1, 'max': 2.0, 'default': 0.5},
+            {'name': 'tp_usd', 'type': 'float', 'min': 1.0, 'max': 10.0, 'default': 2.0}
+        ]
+
     def should_long(self) -> bool:
-        # Cruce simple de EMA 5/10 para el Oro
-        ema5 = ta.ema(self.candles, 5)
-        ema10 = ta.ema(self.candles, 10)
-        return ema5 > ema10 and self.price > self.candles[-2][2]
+        # Entra si el precio actual es distinto al de la vela anterior (Agresión pura)
+        return abs(self.price - self.candles[-1][1]) > self.hp['sensitivity']
 
     def should_short(self) -> bool:
-        ema5 = ta.ema(self.candles, 5)
-        ema10 = ta.ema(self.candles, 10)
-        return ema5 < ema10 and self.price < self.candles[-2][2]
+        # En HFT el short es el espejo del long
+        return abs(self.price - self.candles[-1][1]) > self.hp['sensitivity']
 
     def go_long(self):
-        qty = 0.04 # Lotaje seguro para balance de $500
+        # 0.5 lotes para BTC (~$30k de exposición con 50x)
+        qty = 0.5 
         self.buy = qty, self.price
-        self.stop_loss = qty, self.price - 15
-        self.take_profit = qty, self.price + 30
+        self.stop_loss = qty, self.price - self.hp['tp_usd']
+        self.take_profit = qty, self.price + self.hp['tp_usd']
 
     def go_short(self):
-        qty = 0.04
+        qty = 0.5
         self.sell = qty, self.price
-        self.stop_loss = qty, self.price + 15
-        self.take_profit = qty, self.price - 30
+        self.stop_loss = qty, self.price + self.hp['tp_usd']
+        self.take_profit = qty, self.price - self.hp['tp_usd']
 
-    def should_cancel_entry(self) -> bool:
-        return False
+    def should_cancel_entry(self) -> bool: return False
