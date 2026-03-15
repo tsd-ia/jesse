@@ -1,11 +1,9 @@
 # Roadmap del Proyecto - Jesse + Antigravity (2026)
 
 ## Tareas en Progreso 🚀
-- [ ] Inyección de Estrategia Ganadora (Trend_Sniper_v14) en Producción.
+- [ ] Auditoría de Rigor: 200 combinaciones BTC con comisiones reales (0.04%).
 
 ## Tareas Completadas ✅
-- [x] Corregir freeze 0% en Windows.
-- [x] Mega-Auditoría de 200 estrategias diversificadas ($500 USD).
-- [x] Desarrollo de Dashboard Visual de Resultados.
-- [x] Identificación de Estrategia Ganadora (+44.12% ROI).
-- [x] Generación de Ranking Mundial ORO 2026.
+- [x] Corrección de ruta en `routes.py` (Bitcoin Perpetual Futures).
+- [x] Importación de 20,918 velas de BTC (Marzo 2026).
+- [ ] ~~Auditoría Teórica (Descartada por falta de realismo)~~
