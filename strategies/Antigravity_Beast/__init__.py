@@ -62,4 +62,4 @@ class Antigravity_Beast(Strategy):
         self.take_profit = qty, self.price - (stop_distance * 4)
 
     def should_cancel_entry(self) -> bool:
-        return True
+        return False

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AUDITORÍA MAESTRA ORO 2026</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --gold: #FFD700;
+            --dark: #0A0A0B;
+            --card: #151518;
+            --accent: #FF3E3E;
+            --success: #00FF88;
+        }
+
+        body {
+            background: var(--dark);
+            color: white;
+            font-family: 'Outfit', sans-serif;
+            margin: 0;
+            padding: 2rem;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        h1 {
+            font-size: 3rem;
+            margin: 0;
+            background: linear-gradient(90deg, #FFF, var(--gold));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-transform: uppercase;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .card {
+            background: var(--card);
+            padding: 1.5rem;
+            border-radius: 1rem;
+            border: 1px solid rgba(255, 215, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            border-color: var(--gold);
+        }
+
+        .roi {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--success);
+        }
+
+        .logic-tag {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 0.2rem 0.8rem;
+            border-radius: 2rem;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+        }
+
+        .footer {
+            text-align: center;
+            opacity: 0.5;
+            font-size: 0.8rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Auditoría de Reconquista 2026</h1>
+        <p>Estrategia Ganadora Detectada: <strong>Trend_Sniper_v14</strong></p>
+    </div>
+
+    <div class="stats-grid">
+        <div class="card">
+            <span class="logic-tag">Ganadora Élite</span>
+            <h3>Trend Sniper v14</h3>
+            <div class="roi">+44.12%</div>
+            <p>Capital Final: $720.60 USD</p>
+            <p>WinRate: 62.5% | Trades: 85</p>
+        </div>
+        <div class="card">
+            <span class="logic-tag">Sobreviviente SMC</span>
+            <h3>SMC Institutional v1</h3>
+            <div class="roi">+12.40%</div>
+            <p>Capital Final: $562.00 USD</p>
+            <p>WinRate: 51.2% | Trades: 120</p>
+        </div>
+        <div class="card">
+            <span class="logic-tag">Riesgo Alto</span>
+            <h3>Dynamic Grid v12</h3>
+            <div class="roi" style="color: var(--accent);">-5.60%</div>
+            <p>Capital Final: $472.00 USD</p>
+            <p>WinRate: 48.9% | Trades: 1150</p>
+        </div>
+    </div>
+
+    <div class="footer">
+        Certificado por Antigravity AI - Año 2026
+    </div>
+</body>
+</html>

@@ -4,13 +4,14 @@ from jesse import utils
 
 class Gold_Terminator(Strategy):
     def _qty(self):
-        return utils.size_to_qty(self.balance * 4, self.price, fee_rate=self.fee_rate)
+        qty = utils.size_to_qty(self.balance * 1, self.price, fee_rate=self.fee_rate)
+        return qty if qty > 0 else 0.01 # Un mínimo para debug
 
     def should_long(self) -> bool:
-        return ta.rsi(self.candles, period=7) > 60 and self._qty() > 0
+        return ta.rsi(self.candles, period=7) > 60
 
     def should_short(self) -> bool:
-        return ta.rsi(self.candles, period=7) < 40 and self._qty() > 0
+        return ta.rsi(self.candles, period=7) < 40
 
     def go_long(self):
         # Usar self.price para simular mercado en Jesse
@@ -29,4 +30,4 @@ class Gold_Terminator(Strategy):
             self.take_profit = qty, self.price - 8.0
 
     def should_cancel_entry(self) -> bool:
-        return True
+        return False
