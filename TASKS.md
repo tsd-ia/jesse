@@ -1,9 +1,10 @@
 # Roadmap del Proyecto - Jesse + Antigravity (2026)
 
 ## Tareas en Progreso 🚀
-- [ ] Auditoría de Rigor: 200 combinaciones BTC con comisiones reales (0.04%).
+- [ ] Auditoría HFT "VAMPIRO": +1000 trades diarios con comisiones reales.
 
 ## Tareas Completadas ✅
-- [x] Corrección de ruta en `routes.py` (Bitcoin Perpetual Futures).
-- [x] Importación de 20,918 velas de BTC (Marzo 2026).
-- [ ] ~~Auditoría Teórica (Descartada por falta de realismo)~~
+- [x] Corrección de ruta en `routes.py` (PAXG-USDT).
+- [x] Importación de velas de Oro de Marzo 2026.
+- [ ] ~~Mega-Auditoría de 200 estrategias (Rechazada: Muy lenta)~~
+por falta de realismo)~~
