@@ -2,26 +2,26 @@ from jesse.strategies import Strategy
 
 class MasterWarrior2026(Strategy):
     """
-    TITAN HFT VAMPIRE: Diseñada para +1000 trades diarios.
-    Gatillo ultra-sensible para scalping de alta frecuencia.
+    TITAN HFT METRALLETA: Diseñada para 1440 trades diarios.
+    Entra en cada vela sin preguntar.
     """
     def should_long(self) -> bool:
-        # Dispara si el precio actual es distinto al cierre anterior por $0.10
-        return abs(self.price - self.candles[-1][2]) > 0.1
+        # Entra si no hay posición abierta (Frecuencia máxima)
+        return True
 
     def should_short(self) -> bool:
-        return abs(self.price - self.candles[-1][2]) > 0.1
+        return True
 
     def go_long(self):
-        qty = 0.5 # Lotaje de asalto
+        qty = 10 # 10 BTC de asalto (balance de $1M permite esto)
         self.buy = qty, self.price
-        self.stop_loss = qty, self.price - 2.0
-        self.take_profit = qty, self.price + 2.0
+        self.stop_loss = qty, self.price - 10
+        self.take_profit = qty, self.price + 5 # Scalping ultra-corto
 
     def go_short(self):
-        qty = 0.5
+        qty = 10
         self.sell = qty, self.price
-        self.stop_loss = qty, self.price + 2.0
-        self.take_profit = qty, self.price - 2.0
+        self.stop_loss = qty, self.price + 10
+        self.take_profit = qty, self.price - 5
 
     def should_cancel_entry(self) -> bool: return False
